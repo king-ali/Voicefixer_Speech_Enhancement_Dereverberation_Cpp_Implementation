@@ -1,0 +1,3 @@
+/mnt/d/RIR_Estimation/voicefixer/voicefixer/test/inference/build/CMakeFiles/rebuild_cache.dir
+/mnt/d/RIR_Estimation/voicefixer/voicefixer/test/inference/build/CMakeFiles/edit_cache.dir
+/mnt/d/RIR_Estimation/voicefixer/voicefixer/test/inference/build/CMakeFiles/debugfunc.dir
