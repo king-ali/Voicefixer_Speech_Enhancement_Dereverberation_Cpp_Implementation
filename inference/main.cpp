@@ -11,8 +11,8 @@
 #include <algorithm>
 #include <onnxruntime/include/onnxruntime_cxx_api.h>
 #include <onnxruntime/include/cpu_provider_factory.h>
-#include <torch/torch.h>  // Ensure this header is correctly included for Torch types
-#include <torch/script.h> // This header is required for torch::jit and related functionality
+#include <torch/torch.h> 
+#include <torch/script.h>
 namespace fs = std::filesystem;
 using namespace std::chrono;
 std::vector<char> get_the_bytes(const std::string& filename) {
@@ -63,8 +63,7 @@ int main() {
         std::vector<char> file_data = get_the_bytes(file_path);
         auto tensor_ivalue = torch::jit::pickle_load(file_data);
         auto tensor = tensor_ivalue.toTensor().squeeze().to(torch::kFloat32);
-        // Ensure the tensor is reshaped to the correct dimensions expected by the model
-        //tensor = tensor.view({1, 128, 101}); // Reshape tensor to 1x128x101
+     
         std::vector<float> tensor_data(tensor.data_ptr<float>(), tensor.data_ptr<float>() + tensor.numel());
         
         int64_t input_tensor_shape[] = {1, 128, 106}; // This should match the expected input shape of the model
